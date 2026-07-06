@@ -1,0 +1,49 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.egg-info/
+dist/
+*.egg
+.venv/
+venv/
+
+# 数据库文件
+*.db
+*.sqlite3
+
+# 环境变量（含 API Key）
+.env
+!.env.example
+
+# 上传文件
+backend/app/uploads/
+chroma_db/
+
+# 计划文件
+gen_plan.py
+plan_*.txt
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Node
+node_modules/
+dist/
+.vite/
+
+# Vite 默认模板文件（未使用的模板文件）
+frontend/src/App.css
+frontend/src/assets/react.svg
+frontend/src/assets/hero.png
+frontend/src/assets/vite.svg
+
+# 前端 public 中的模板文件
+frontend/public/favicon.svg
