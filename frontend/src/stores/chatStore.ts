@@ -56,7 +56,7 @@ export const useChatStore = create<ChatState>((set, get) => ({
     try {
       const res = await chatApi.getMessages(sessionId);
       const msgs = res.data.messages || [];
-      set({ messages: msgs.reverse() }); // reverse to show oldest first
+      set({ messages: msgs }); // API 已经按时间升序返回，不需要 reverse
     } catch {
       set({ messages: [] });
     }

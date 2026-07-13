@@ -1,0 +1,35 @@
+name: 自动构建
+
+# 什么时候触发
+on:
+  push:
+    branches: [master]   # 推送 master 分支时触发
+
+# 要干什么
+jobs:
+  build:
+    runs-on: ubuntu-latest   # 在 GitHub 的 Linux 服务器上跑
+    defaults:
+      run:
+        working-directory: ./frontend   # 所有命令在 frontend 目录执行
+
+    steps:
+      - name: 📥 拉取代码
+        uses: actions/checkout@v4
+
+      - name: 📦 安装 Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: 📦 安装依赖
+        run: npm install
+
+      - name: 🔍 类型检查
+        run: npx tsc -b --noEmit
+
+      - name: 🏗️ 构建前端
+        run: npm run build
+
+      - name: ✅ 构建完成
+        run: echo "🎉 前端构建成功！"
